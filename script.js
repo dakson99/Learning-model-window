@@ -7,7 +7,7 @@ const btnOpenModel = document.querySelectorAll('.show-modal');
 console.log(btnOpenModel);
 
 const openModel = function () {
-  console.log('Button clicked');
+  //console.log('Button clicked');
   model.classList.remove('hidden');
   overlay.classList.remove('hidden');
 };
@@ -25,3 +25,9 @@ for (let i = 0; i < btnOpenModel.length; i++) {
 //Close model
 btnCloaseModel.addEventListener('click', closeModel);
 overlay.addEventListener('click', closeModel);
+
+//Implemented 'escape' button
+document.addEventListener('keydown', function (e) {
+  console.log(e.key);
+  if (e.key === 'Escape') if (!model.classList.contains('hidden')) closeModel();
+});
